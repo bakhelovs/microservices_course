@@ -32,7 +32,7 @@ type Note struct {
 	UpdatedAt string   `json:"updated_at"`
 }
 
-func createNoteClient() (Note, error) {
+func createNote() (Note, error) {
 	note := NoteInfo{
 		Title:    gofakeit.BeerName(),
 		Context:  gofakeit.IPv4Address(),
@@ -87,7 +87,7 @@ func getNoteClient(id int64) (Note, error) {
 }
 
 func main() {
-	note, err := createNoteClient()
+	note, err := createNote()
 	if err != nil {
 		log.Fatal("failed to create note:", err)
 	}
